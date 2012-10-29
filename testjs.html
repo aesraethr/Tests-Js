@@ -1,0 +1,27 @@
+<!doctype html >
+  <html ng-app>
+   <meta charset="UTF-8">
+    <head>
+      <script src="http://code.angularjs.org/1.0.1/angular-1.0.1.min.js"></script>
+      <script src="file:///home/aesraethr/JsWorkspace/script.js"></script>
+    </head>
+    <body>
+      <div ng:app ng:controller="NodeForm">
+    <table>
+        <tr ng:repeat="item in jason.items">
+            <td>
+                <select ng:model="category" ng:options="c.type for c in nodeAttr" ></select>
+                <select ng:model="item.attr" ng:options="p.attr for p in category.attr" ></select>
+		<select ng:model="item.comparator" ng:options="d.comparator for d in item.attr.comparator" ></select>
+		<input type="text" ng:model="item.attr.attribute.comparator.value" ng-pattern="{{inputType}}">
+            </td>
+            <td>
+                <input type="button" value="-" ng:click="removeItem($index)"><input type="button" value="+" ng:click="addItem()">
+            </td>
+        </tr>
+    </table>
+    <hr/>
+    <input type="button" value="Search" onclick="alert('{{jason}}');">
+</div>
+    </body>
+  </html>
